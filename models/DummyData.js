@@ -22,7 +22,7 @@ const dummyDataSchema = mongoose.Schema({
         required :true
         
     },
-    birthDate:  { 
+    birthdate:  { 
         type : String, 
         required :true
     } 

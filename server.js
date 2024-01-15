@@ -2,14 +2,14 @@ const express = require('express')
 require('dotenv').config()
 const app = express() 
 const PORT = process.env.PORT || 8000
-const {getRandmonDummyData, getDummyDataWithId} = require('./controllers/DummyData')
+const {getRandomDummyData, getDummyDataWithId} = require('./controllers/DummyData')
 const mongoose = require('./configs/mongoose')
 
 // mongoose connection
 mongoose.connect() 
 
 // api route
-app.get('/get-dummy-data' , getRandmonDummyData)
+app.get('/get-dummy-data' , getRandomDummyData)
 app.get('/get-dummy-data/:id' , getDummyDataWithId)
 // default route
 app.get('/' , (req ,res)=> { 

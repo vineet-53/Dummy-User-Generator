@@ -3,11 +3,12 @@ const DummyData = require('../models/DummyData')
 exports.getRandomDummyData = async(req ,res)=> { 
     try { 
         const randomDataPayload = await generateDummyData() 
-        await DummyData.create(randomDataPayload) 
+        const data =await DummyData.create(randomDataPayload) 
+        console.log(data)
         return res.status(200).json( { 
             success : true , 
             message : "fetched a dummy data",
-            DummyData
+            data : randomDataPayload
         })
     }catch(err) { 
         return res.status(401).json({  
@@ -24,7 +25,7 @@ exports.getDummyDataWithId = async (req, res) => {
         if(!id) { 
             throw new Error('id not recieved')
         }
-        const dummyData = await DummyData.findById(id); 
+        const dummyData = await DummyData.findOne({userId : id}); 
         if(!dummyData) { 
             throw new Error  ('dummy data not present in db sorry')
         }
@@ -32,7 +33,7 @@ exports.getDummyDataWithId = async (req, res) => {
 
             success :true, 
             message : "here is your data" , 
-            dummyData
+            data : dummyData
         })
     }catch(err) { 
         return res.status(401).json({  
