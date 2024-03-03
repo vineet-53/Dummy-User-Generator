@@ -1,18 +1,15 @@
+# Dummy User Data Generator
 
-# Dummy Data Generator
+Generate dummy data for testing and development purposes using MongoDB and Express.
 
-Dummy data generator using MongoDB and Express can be a useful task for testing and development purposes. 
+## How To Use
 
-* Use to create Dummy Data when hit at api end point 
+- `/get-dummy-data`: Create dummy data.
+- `/get-dummy-data/:userId`: Fetch specific data using user ID.
 
+## .env Configuration
 
-# How To Use
+Configure the following parameters in your `.env` file:
 
-* /get-dummy-data : to create dummy data 
-* /get-dummy-data/:userId  :- if you have user id then you can fetch that specific generated data from DataBase
- 
-# .env materials 
-
-* # includes 
-    * DB_URL for mongoose connection 
-    * PORT for server 
+- `DB_URL`: Mongoose connection URL for the database.
+- `PORT`: Server port.
